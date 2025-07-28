@@ -1,0 +1,13 @@
+{% extends "config/base.html" %}
+
+{% block title %}All Books{% endblock %}
+
+{% block body %}
+<ul>
+    {% for book in books %}
+    <li>
+        {{book.title}} (Rating: {{book.rating}})
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
