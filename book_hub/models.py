@@ -9,7 +9,7 @@ class Book(models.Model):
     rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(10)])
     author = models.CharField(null=True, max_length=100)
     is_bestselling = models.BooleanField(default=False)
-    slug = models.SlugField(unique=True, blank=True) # Makes the field unique; also auto-indexed (db_index=True)
+    slug = models.SlugField(unique=True, editable=False, blank=True) # Makes the field unique; also auto-indexed (db_index=True)
 
 
     def get_absolute_url(self):
