@@ -1,11 +1,11 @@
 {% extends "config/base.html" %}
 
-{% block title %}{{book.title|title}}{% endblock %}
+{% block title %}{{title|title}}{% endblock %}
 
 {% block body %}
-<h1>{{book.title|title}}</h1>
-<h2>{{book.author}}</h2>
+<h1>{{title|title}}</h1>
+<h2>{{author}}</h2>
 <p>
-    The book has a rating of {{book.rating}}/10 {% if book.is_bestselling %} and is a bestseller. {% else %} . {% endif %}
+    The book has a rating of {{rating}}/10 {% if is_bestselling %} and is a bestseller. {% else %} . {% endif %}
 </p>
 {% endblock %}

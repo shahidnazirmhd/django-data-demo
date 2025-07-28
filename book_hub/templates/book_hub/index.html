@@ -3,6 +3,9 @@
 {% block title %}All Books{% endblock %}
 
 {% block body %}
+<p>Total Number Of Books: {{total_books}}</p>
+<p>Average Rating: {{avg_rating}}</p>
+<hr>
 <ul>
     {% for book in books %}
     <li>
