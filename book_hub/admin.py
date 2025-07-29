@@ -1,19 +1,24 @@
 from django.contrib import admin
 
 
-from .models import Book, Author
+from .models import Book, Author, Address
+
+
+class AddressAdmin(admin.ModelAdmin):
+    list_filter = ("city",)
+    list_display = ("street", "city",)
 
 
 class AuthorAdmin(admin.ModelAdmin):
-    list_filter = ("name", "surname")
-    list_display = ("name", "surname")
+    list_filter = ("name", "surname",)
+    list_display = ("name", "surname",)
 
 
 class BookAdmin(admin.ModelAdmin):
     #readonly_fields = ("slug",)
     prepopulated_fields = {"slug": ("title",)}
-    list_filter = ("author", "rating")
-    list_display = ("title", "author__name", "author__surname")
+    list_filter = ("author", "rating",)
+    list_display = ("title", "author__name", "author__surname",)
 
 
     # def author_name(self, obj):
@@ -25,3 +30,4 @@ class BookAdmin(admin.ModelAdmin):
 
 admin.site.register(Book, BookAdmin)
 admin.site.register(Author, AuthorAdmin)
+admin.site.register(Address, AddressAdmin)

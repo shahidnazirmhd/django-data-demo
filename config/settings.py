@@ -35,6 +35,13 @@ USE_X_FORWARDED_HOST = True
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://glowing-space-barnacle-jvqp6jjxx425pj9-8000.app.github.dev",
+    "http://localhost:8000",        # For local development
+    "http://127.0.0.1:8000",
+]
+
+
 # Application definition
 
 INSTALLED_APPS = [
