@@ -25,7 +25,14 @@ SECRET_KEY = "django-insecure-g-#7w1ddn0#rc3*!x0@m50dapp-z+g-r0p9*c2u%l7e*smv^0@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "glowing-space-barnacle-jvqp6jjxx425pj9-8000.app.github.dev"
+]
+
+
+# Use proxy headers for correct host/port handling in Codespaces or reverse proxy setups
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 
 # Application definition
