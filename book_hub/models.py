@@ -16,7 +16,7 @@ class Author(models.Model):
 class Book(models.Model):
     title = models.CharField(max_length=50)
     rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(10)])
-    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name="books", related_query_name="book")  # related_name(default: book_set) - access objects from reverse, related_query_name(default: book) - querying through reverse
     is_bestselling = models.BooleanField(default=False)
     slug = models.SlugField(blank=True, db_index=True)
 
