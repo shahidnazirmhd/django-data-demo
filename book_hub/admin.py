@@ -1,8 +1,7 @@
 from django.contrib import admin
 
 
-from .models import Book
-from .models import Author
+from .models import Book, Author
 
 
 class AuthorAdmin(admin.ModelAdmin):
@@ -14,14 +13,14 @@ class BookAdmin(admin.ModelAdmin):
     #readonly_fields = ("slug",)
     prepopulated_fields = {"slug": ("title",)}
     list_filter = ("author", "rating")
-    list_display = ("title", "author_name")
+    list_display = ("title", "author__name", "author__surname")
 
 
-    def author_name(self, obj):
-        return f"{obj.author.name} {obj.author.surname}"
+    # def author_name(self, obj):
+    #     return f"{obj.author.name} {obj.author.surname}"
     
-    author_name.admin_order_field = "author__name"  # Optional: make sortable by author name
-    author_name.short_description = "Author"
+    # author_name.admin_order_field = "author__name"  # Optional: make sortable by author name
+    # author_name.short_description = "Author"
     
 
 admin.site.register(Book, BookAdmin)
