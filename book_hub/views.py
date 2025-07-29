@@ -8,7 +8,8 @@ from .models import Book
 def book_hub_index(request):
     books = Book.objects.all().order_by("title") #.order_by("-rating") - For decending order
     total_books = books.count()
-    avg_rating = round(books.aggregate(Avg("rating"))["rating__avg"], 2)
+    avg_rating = books.aggregate(Avg("rating"))["rating__avg"]
+    avg_rating = round(avg_rating, 2) if avg_rating is not None else 0.0
     return render(request, "book_hub/index.html", {
         "books": books,
         "total_books": total_books,
