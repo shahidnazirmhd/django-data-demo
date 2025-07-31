@@ -1,7 +1,12 @@
 from django.contrib import admin
 
 
-from .models import Book, Author, Address
+from .models import Book, Author, Address, Country
+
+
+class CountryAdmin(admin.ModelAdmin):
+    list_filter = ("code",)
+    list_display = ("name", "code",)
 
 
 class AddressAdmin(admin.ModelAdmin):
@@ -31,3 +36,4 @@ class BookAdmin(admin.ModelAdmin):
 admin.site.register(Book, BookAdmin)
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(Address, AddressAdmin)
+admin.site.register(Country, CountryAdmin)
